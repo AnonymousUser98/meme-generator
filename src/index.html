@@ -78,7 +78,7 @@
                   <option value="fileSelectBtn">Use an image from your device</option>
                   <option value="imageUrlForm">Use an image from URL</option>
                   <option value="openVideoModalBtn">Take photo with webcam</option>
-                  <option value="solidColorForm">Use solid color</option>
+                  <option value="solidColorForm" id="solidColorOption">Use solid color</option>
                 </select>
               </div>
 
@@ -218,7 +218,7 @@
 
               <form id="solidColorForm" class="upload-method row g-2" hidden>
                 <div class="col-4">
-                  <label for="canvasColor">Color:</label>
+                  <label for="canvasColor" id="colorFormLabel">Color:</label>
                   <input type="color" name="canvasColor" id="canvasColor" class="form-control" value="#ffffff" style="height: 33.5px;">
                 </div>
                 <div class="col-4">
@@ -275,7 +275,7 @@
 
       <div class="row mb-5">
         <div class="col text-center">
-          Licensed under <a class="text-underline" href="https://github.com/georapbox/meme-generator/blob/master/LICENSE" target="_blank" rel="noopener">The MIT License (MIT)</a>
+          Licensed under <a class="text-underline" href="https://github.com/georapbox/meme-generator/blob/master/LICENSE" target="_blank" rel="noopener" id="licenseText">The MIT License (MIT)</a>
         </div>
       </div>
     </div>
