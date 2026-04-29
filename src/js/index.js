@@ -785,29 +785,53 @@ const spellings = {
 
 // The below code was written by ChatGPT.
 function getSpelling(wordKey) {
-  const variants = spellings[wordKey];
+  const lookupKey = wordKey.toLowerCase();
+  const variants = spellings[lookupKey];
   if (!variants) return wordKey;
 
   const languages = navigator.languages || [navigator.language];
+  let result = variants.default || lookupKey;
 
   for (const lang of languages) {
-    // exact locale match
     if (variants[lang]) {
-      return variants[lang];
+      result = variants[lang];
+      break;
     }
 
-    // language-only fallback (for example en-NZ → any en-* entry)
     const base = lang.split("-")[0];
 
     for (const locale in variants) {
       if (locale.startsWith(base + "-")) {
-        return variants[locale];
+        result = variants[locale];
+        break;
       }
     }
   }
 
-  return variants.default || wordKey;
-}
+  // preserve capitalization style
+  if (wordKey === wordKey.toUpperCase()) {
+    return result.toUpperCase();          // COLOR -> COLOUR
+  }
 
+  if (wordKey[0] === wordKey[0].toUpperCase()) {
+    return result.charAt(0).toUpperCase() + result.slice(1); // Color -> Colour
+  }
+
+  return result;                          // color -> colour
+}
 // End of AI-generated code.
 // To use it, just run `getSpelling("color")` (with the word you want) and it will be replaced with the correct spelling.
+// It's supposed to keep the capitalization of the input text.
+
+
+// Automatically replace words with the correct spelling
+
+// The "use solid color" option in the image source dropdown
+document.getElementById("solidColorOption").textContent = `Use solid ${getSpelling("color")}`;
+
+// The "color" label in solidColorForm
+document.getElementById("colorFormLabel").textContent = `${getSpelling("Color")}:`;
+
+// The MIT license text at the bottom of the page
+document.getElementById("licenseText").textContent = `The MIT ${getSpelling("License")}`;
+
