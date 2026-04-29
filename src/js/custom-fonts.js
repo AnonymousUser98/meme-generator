@@ -9,6 +9,11 @@ import CourierPrimeRegular from 'url:../assets/fonts/CourierPrime/CourierPrime-R
 import CourierPrimeBold from 'url:../assets/fonts/CourierPrime/CourierPrime-Bold.ttf';
 import OpenSansRegular from 'url:../assets/fonts/OpenSans/OpenSans-Regular.ttf';
 import OpenSansBold from 'url:../assets/fonts/OpenSans/OpenSans-Bold.ttf';
+import HighwayGothicRegular from 'url:../assets/fonts/HighwayGothic/HWYGOTH.TTF';
+import HighwayGothicNarrow from 'url:../assets/fonts/HighwayGothic/HWYGNRRW.TTF';
+import HighwayGothicCondensed from 'url:../assets/fonts/HighwayGothic/HWYGCOND.TTF';
+import HighwayGothicWide from 'url:../assets/fonts/HighwayGothic/HWYGWDE.TTF';
+import HighwayGothicExpanded from 'url:../assets/fonts/HighwayGothic/HWYGEXPD.TTF';
 
 export const customFonts = [
   {
@@ -85,6 +90,41 @@ export const customFonts = [
     name: 'OpenSans-Bold',
     label: 'Open Sans Bold',
     path: OpenSansBold,
+    style: 'normal',
+    weight: '400'
+  },
+  {
+    name: 'HighwayGothic',
+    label: 'Highway Gothic',
+    path: HighwayGothicRegular,
+    style: 'normal',
+    weight: '400'
+  },
+  {
+    name: 'HighwayGothicNarrow',
+    label: 'Highway Gothic Narrow',
+    path: HighwayGothicNarrow,
+    style: 'normal',
+    weight: '400'
+  },
+  {
+    name: 'HighwayGothicWide',
+    label: 'Highway Gothic Wide',
+    path: HighwayGothicWide,
+    style: 'normal',
+    weight: '400'
+  },
+  {
+    name: 'HighwayGothicCondensed',
+    label: 'Highway Gothic Condensed',
+    path: HighwayGothicCondensed,
+    style: 'normal',
+    weight: '400'
+  },
+  {
+    name: 'HighwayGothicExpanded',
+    label: 'Highway Gothic Expanded',
+    path: HighwayGothicExpanded,
     style: 'normal',
     weight: '400'
   }
