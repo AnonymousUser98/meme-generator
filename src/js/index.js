@@ -759,3 +759,55 @@ function changesHaveOccurred() {
 
   return hasChanges;
 }
+
+
+// Change the spelling depending on your browser's language settings
+const spellings = {
+  color: {
+    "en-US": "color",
+    "en-GB": "colour",
+    "en-CA": "colour",
+    "en-AU": "colour",
+    default: "color"
+  },
+  license: {
+    "en-US": "license",
+    "en-GB": "licence",
+    "en-CA": "license",
+    "en-AU": "licence",
+    default: "license"
+  }
+}
+/* NOTES ABOUT THE WORD "LICENSE":
+  Only apply this to the noun. The verb is always spelled "license".
+  Both are acceptable in Canadian English.
+*/
+
+// The below code was written by ChatGPT.
+function getSpelling(wordKey) {
+  const variants = spellings[wordKey];
+  if (!variants) return wordKey;
+
+  const languages = navigator.languages || [navigator.language];
+
+  for (const lang of languages) {
+    // exact locale match
+    if (variants[lang]) {
+      return variants[lang];
+    }
+
+    // language-only fallback (for example en-NZ → any en-* entry)
+    const base = lang.split("-")[0];
+
+    for (const locale in variants) {
+      if (locale.startsWith(base + "-")) {
+        return variants[locale];
+      }
+    }
+  }
+
+  return variants.default || wordKey;
+}
+
+// End of AI-generated code.
+// To use it, just run `getSpelling("color")` (with the word you want) and it will be replaced with the correct spelling.
